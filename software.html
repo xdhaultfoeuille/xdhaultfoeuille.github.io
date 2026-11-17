@@ -1,33 +1,47 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Academic website of Firstname Lastname: research, teaching and publications.">
-  <title>Software | Firstname Lastname</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Software — research, publications, and teaching of Xavier D’Haultfœuille at CREST–ENSAE.">
+<meta name="theme-color" content="#f8f8f5">
+<title>Software | Xavier D’Haultfœuille</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <a class="portrait-link" href="index.html" aria-label="Go to home page"><img class="portrait" src="assets/portrait.svg" alt="Placeholder portrait – replace with your photo"></a>
-      <a href="index.html" class="site-name">Firstname Lastname</a>
-      <div class="affiliation">Economics · University / Research Institute</div>
-      <nav aria-label="Main navigation"><a href="index.html" >About</a>
-<a href="cv.html" >CV</a>
-<a href="research.html" >Research</a>
-<a href="teaching.html" >Teaching</a>
-<a href="presentations.html" >Presentations</a>
-<a href="software.html" aria-current="page" >Software</a></nav>
-      <div class="sidebar-bottom"><a href="mailto:your.email@institution.edu">Email</a></div>
-    </aside>
-    <main id="main-content" class="main-content">
-      <div class="eyebrow">CODE & TOOLS</div><h1>Software</h1><p class="lead">Packages, replication materials and research tools.</p>
-<section><h2>Projects</h2><div class="simple-entry"><h3>Name of your software project</h3><p>A brief description of the package or code. Mention the programming language (R, Stata, MATLAB, Python, etc.).</p><p class="soft">GitHub repository link to add</p></div></section>
-      <footer>© <span id="year">2026</span> Firstname Lastname · Built with GitHub Pages</footer>
-    </main>
-  </div>
-  <script src="script.js"></script>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="shell">
+<aside class="profile">
+  <a href="index.html" class="photo-link" aria-label="Home page"><img src="assets/Xavier_DHaultfoeuille.jpg" alt="Portrait of Xavier D’Haultfœuille" class="photo" width="480" height="480"></a>
+  <a href="index.html" class="profile-name">Xavier<br>D’Haultfœuille</a>
+  <div class="profile-title">Professor of Economics</div>
+  <div class="profile-affiliation">CREST · ENSAE Paris</div>
+  <nav class="nav" aria-label="Main navigation"><a href="index.html">Home</a>
+<a href="research.html">Research</a>
+<a href="teaching.html">Teaching</a>
+<a href="software.html" aria-current="page">Software</a>
+<a href="cv.html">CV</a></nav>
+  <div class="profile-contact"><a href="mailto:xavier.dhaultfoeuille@ensae.fr">Email</a><span class="sep">·</span><a href="files/Xavier_DHaultfoeuille_CV.pdf">CV (PDF)</a></div>
+</aside>
+<main id="main" class="main">
+  <header class="page-heading"><div class="eyebrow">XAVIER D’HAULTFŒUILLE <span> / </span> SOFTWARE</div><h1>Software</h1><p class="lead">Stata and R programs related to my research.</p></header>
+  <section class="section first-section"><h2>Stata commands</h2><p class="section-intro">Some programs associated with my research are distributed through SSC or journal repositories.</p>
+<article class="simple-item"><h3>mfelogit</h3><p>Average marginal and treatment effects in fixed-effects binary logit models. With Laurent Davezies, Christophe Gaillac, and Louise Laage.</p><code>ssc install mfelogit</code></article>
+<article class="simple-item"><h3>fuzzydid</h3><p>Difference-in-differences procedures for fuzzy treatment designs. With Clément de Chaisemartin and Yannick Guyonvarch.</p><code>ssc install fuzzydid</code></article>
+<article class="simple-item"><h3>testex</h3><p>Testing an exclusion restriction in the control-function setting; developed by Yuya Sasaki.</p><code>ssc install testex</code></article>
+<article class="simple-item"><h3>segregsmall</h3><p>Segregation indices for settings with small units. With Lucas Girard and Roland Rathelot.</p><code>net install st0631</code></article>
+<article class="simple-item"><h3>eqregsel</h3><p>Estimation of a sample-selection model without standard excluded instruments. With Arnaud Maurel, Xiaoyun Qiu, and Yichong Zhang.</p><code>net install st0598</code></article>
+<p class="micro-note">For other programs, including two-way clustering inference, see the <a href="https://faculty.crest.fr/xdhaultfoeuille/software-programs/">original software page</a>.</p></section>
+<section class="section"><h2>R packages</h2>
+<article class="simple-item"><h3><a href="https://github.com/cgaillac/RationalExp">RationalExp ↗</a></h3><p>Tests of rational expectations using subjective expectations and realizations.</p></article>
+<article class="simple-item"><h3><a href="https://github.com/cgaillac/MarginalFElogit">MarginalFElogit ↗</a></h3><p>Estimation of average effects in fixed-effects logit models.</p></article>
+<article class="simple-item"><h3><a href="https://cran.r-project.org/web/packages/RegCombin/index.html">RegCombin ↗</a></h3><p>Partial-identification bounds for linear regression with combined datasets.</p></article>
+<article class="simple-item"><h3><a href="https://github.com/cgaillac/RegCombinBLP">RegCombinBLP ↗</a></h3><p>Bounds for best linear predictions with combined data.</p></article>
+<p class="micro-note">Additional difference-in-differences commands are available from <a href="https://github.com/chaisemartinPackages">chaisemartinPackages on GitHub</a>.</p></section>
+  <footer class="footer"><span>© <span id="current-year">2026</span> Xavier D’Haultfœuille</span><span>Made with GitHub Pages</span></footer>
+</main>
+</div>
+<script src="script.js" defer></script>
 </body>
 </html>
