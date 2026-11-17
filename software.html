@@ -3,30 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Software — research, publications, and teaching of Xavier D’Haultfœuille at CREST–ENSAE.">
-<meta name="theme-color" content="#f8f8f5">
+<meta name="description" content="Software and econometric code by Xavier D’Haultfœuille.">
 <title>Software | Xavier D’Haultfœuille</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<style>
+
+:root{--ink:#262a30;--body:#373e45;--muted:#70777f;--link:#28689a;--border:#e4e8eb}
+*{box-sizing:border-box}
+html{font-size:15px}
+body{margin:0;background:#fff;color:var(--body);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,Helvetica,sans-serif;font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}a:focus-visible{outline:2px solid #28689a;outline-offset:3px}
+.site-header{border-bottom:1px solid var(--border);background:#fff}
+.header-inner{width:min(100% - 48px,1000px);margin:0 auto;min-height:64px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.site-brand{font-size:15px;line-height:1.4;color:#262a30;font-weight:600;white-space:nowrap}
+.site-brand:hover{text-decoration:none}
+.site-nav{display:flex;align-items:center;gap:29px;flex-wrap:wrap}
+.site-nav a{color:#515961;font-size:14px;white-space:nowrap;padding:21px 0 19px;border-bottom:2px solid transparent}
+.site-nav a[aria-current="page"]{font-weight:600;color:#23292d;border-color:#737e87}
+.site-nav a:hover{text-decoration:none;color:#111}
+.site-layout{width:min(100% - 48px,1000px);margin:0 auto;padding:55px 0 35px;display:grid;grid-template-columns:190px minmax(0,1fr);column-gap:72px;align-items:start;min-height:calc(100vh - 65px)}
+.profile{padding-top:2px}
+.profile-photo{width:166px;height:166px;border-radius:50%;object-fit:cover;object-position:center 28%;display:block;margin:0 0 20px;box-shadow:0 0 0 1px rgba(0,0,0,.045)}
+.profile-name{margin:0;font-size:20px;line-height:1.35;font-weight:600;color:#272b2e;letter-spacing:-.018em}
+.profile-role{margin:9px 0 0;font-size:14px;line-height:1.5;color:#525b62}
+.profile-affiliation{font-size:13px;color:var(--muted);margin:4px 0 0}
+.profile-links{font-size:13px;line-height:1.7;margin:15px 0 0}
+.main{min-width:0;max-width:710px}
+.main h1{font-weight:600;font-size:23px;line-height:1.35;color:#262a30;letter-spacing:-.015em;margin:0 0 19px}
+.main h2{font-weight:600;font-size:17px;line-height:1.5;color:#262a30;margin:35px 0 13px}
+.main h3{font-weight:600;font-size:15px;line-height:1.45;color:#303942;margin:0}
+.main p{margin:0 0 17px}
+.main ul{padding-left:22px}
+.home-intro{max-width:665px;padding-top:4px}
+.home-intro p{margin-bottom:19px}
+.home-cv{margin-top:23px}
+.home-cv a{font-weight:600}
+.page-description{color:#666f76;margin-top:-11px!important;margin-bottom:25px!important}
+.paper-section{margin-top:32px}
+.paper-section:first-of-type{margin-top:0}
+.paper-section h2{margin:0 0 8px;padding:0 0 9px;border-bottom:1px solid var(--border)}
+.paper{padding:12px 0 13px;border-bottom:1px solid #eff1f2}
+.paper-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.paper-top h3{flex:1;min-width:0;font-size:14px;font-weight:600}
+.paper-title-link{color:var(--link)}
+.year{white-space:nowrap;color:#7c858b;font-size:12px;line-height:1.5}
+.paper-meta,.paper-note,.paper-actions{font-size:13px;line-height:1.55;margin:3px 0 0!important;color:#59626b}
+.paper-note{color:#6b747c}
+.paper-actions a{font-size:12px;font-weight:600}
+.research-tools{margin:0 0 27px}
+.research-tools label{display:block;font-size:13px;color:#505860;margin-bottom:6px}
+.research-tools input{font:13px/1.5 inherit;font-size:13px;width:100%;padding:9px 11px;border:1px solid #ced6db;border-radius:3px;color:#333;background:#fff}
+.research-tools input:focus{outline:2px solid #a8c6db;outline-offset:1px}
+.search-count{font-size:12px;color:var(--muted);margin-top:4px;min-height:0}
+.simple-item{padding:10px 0 11px;border-bottom:1px solid #edf0f1}
+.simple-item p{font-size:14px;margin:5px 0!important;color:#505961}
+.simple-item code{font-size:12px;background:#f5f6f7;color:#47535e;padding:4px 6px;border-radius:2px;display:inline-block;margin:5px 0}
+.section-intro,.bottom-note,.micro-note{font-size:13px;color:#68737b}
+.bottom-note,.micro-note{margin-top:21px!important}
+.date,.count{color:#798188;font-size:12px;font-weight:400;margin-left:6px}
+.section{margin-top:30px}
+.section.first-section{margin-top:12px}
+.section h2{margin-top:0}
+.footer{border-top:1px solid var(--border);margin-top:52px;padding-top:15px;color:#919aa1;font-size:12px}
+.paper[hidden],.paper-section[hidden]{display:none!important}
+@media(max-width:730px){
+ .header-inner{width:min(100% - 34px,1000px);display:block;padding:14px 0 7px;min-height:0}
+ .site-brand{display:block;font-size:14px;margin-bottom:7px}
+ .site-nav{gap:22px}
+ .site-nav a{font-size:13px;padding:5px 0 7px}
+ .site-layout{width:min(100% - 34px,1000px);display:block;padding:28px 0 25px}
+ .profile{display:grid;grid-template-columns:91px minmax(0,1fr);column-gap:16px;align-items:start;margin-bottom:32px}
+ .profile-photo{width:91px;height:91px;margin:0;grid-row:1/5}
+ .profile-name{font-size:19px}
+ .profile-role{margin-top:4px;font-size:13px}
+ .profile-affiliation{font-size:12px}
+ .profile-links{margin-top:4px;font-size:12px}
+ .main{max-width:none}
+ .main h1{font-size:21px}
+ .main h2{font-size:17px}
+ .paper-top{gap:8px}
+ .paper-top h3{font-size:14px}
+ .year{font-size:11px}
+ .footer{margin-top:42px}
+}
+
+</style>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
-<div class="shell">
-<aside class="profile">
-  <a href="index.html" class="photo-link" aria-label="Home page"><img src="assets/Xavier_DHaultfoeuille.jpg" alt="Portrait of Xavier D’Haultfœuille" class="photo" width="480" height="480"></a>
-  <a href="index.html" class="profile-name">Xavier<br>D’Haultfœuille</a>
-  <div class="profile-title">Professor of Economics</div>
-  <div class="profile-affiliation">CREST · ENSAE Paris</div>
-  <nav class="nav" aria-label="Main navigation"><a href="index.html">Home</a>
+<header class="site-header"><div class="header-inner">
+  <a class="site-brand" href="index.html">Xavier D’Haultfœuille</a>
+  <nav class="site-nav" aria-label="Main navigation"><a href="index.html">Home</a>
 <a href="research.html">Research</a>
 <a href="teaching.html">Teaching</a>
-<a href="software.html" aria-current="page">Software</a>
-<a href="cv.html">CV</a></nav>
-  <div class="profile-contact"><a href="mailto:xavier.dhaultfoeuille@ensae.fr">Email</a><span class="sep">·</span><a href="files/Xavier_DHaultfoeuille_CV.pdf">CV (PDF)</a></div>
+<a href="software.html" aria-current="page">Software</a></nav>
+</div></header>
+<div class="site-layout">
+<aside class="profile" aria-label="Profile">
+  <img class="profile-photo" src="assets/Xavier_DHaultfoeuille.jpg" alt="Portrait of Xavier D’Haultfœuille" width="166" height="166">
+  <h2 class="profile-name">Xavier D’Haultfœuille</h2>
+  <p class="profile-role">Professor of Economics</p>
+  <p class="profile-affiliation">CREST · ENSAE Paris</p>
+  <p class="profile-links"><a href="mailto:xavier.dhaultfoeuille@ensae.fr">Email</a></p>
 </aside>
-<main id="main" class="main">
-  <header class="page-heading"><div class="eyebrow">XAVIER D’HAULTFŒUILLE <span> / </span> SOFTWARE</div><h1>Software</h1><p class="lead">Stata and R programs related to my research.</p></header>
-  <section class="section first-section"><h2>Stata commands</h2><p class="section-intro">Some programs associated with my research are distributed through SSC or journal repositories.</p>
+<main class="main" id="main">
+<h1>Software</h1>
+<section class="section first-section"><h2>Stata commands</h2><p class="section-intro">Some programs associated with my research are distributed through SSC or journal repositories.</p>
 <article class="simple-item"><h3>mfelogit</h3><p>Average marginal and treatment effects in fixed-effects binary logit models. With Laurent Davezies, Christophe Gaillac, and Louise Laage.</p><code>ssc install mfelogit</code></article>
 <article class="simple-item"><h3>fuzzydid</h3><p>Difference-in-differences procedures for fuzzy treatment designs. With Clément de Chaisemartin and Yannick Guyonvarch.</p><code>ssc install fuzzydid</code></article>
 <article class="simple-item"><h3>testex</h3><p>Testing an exclusion restriction in the control-function setting; developed by Yuya Sasaki.</p><code>ssc install testex</code></article>
@@ -39,9 +120,28 @@
 <article class="simple-item"><h3><a href="https://cran.r-project.org/web/packages/RegCombin/index.html">RegCombin ↗</a></h3><p>Partial-identification bounds for linear regression with combined datasets.</p></article>
 <article class="simple-item"><h3><a href="https://github.com/cgaillac/RegCombinBLP">RegCombinBLP ↗</a></h3><p>Bounds for best linear predictions with combined data.</p></article>
 <p class="micro-note">Additional difference-in-differences commands are available from <a href="https://github.com/chaisemartinPackages">chaisemartinPackages on GitHub</a>.</p></section>
-  <footer class="footer"><span>© <span id="current-year">2026</span> Xavier D’Haultfœuille</span><span>Made with GitHub Pages</span></footer>
+<footer class="footer">© <span id="current-year">2026</span> Xavier D’Haultfœuille</footer>
 </main>
 </div>
-<script src="script.js" defer></script>
+<script>
+
+(function(){
+  const year=document.getElementById('current-year');
+  if(year)year.textContent=String(new Date().getFullYear());
+  const search=document.getElementById('paper-search');
+  if(!search)return;
+  const papers=Array.from(document.querySelectorAll('.paper'));
+  const groups=Array.from(document.querySelectorAll('.paper-section'));
+  const count=document.getElementById('search-count');
+  const refresh=()=>{
+    const q=search.value.trim().toLocaleLowerCase();let found=0;
+    papers.forEach(p=>{const ok=!q||(p.getAttribute('data-search')||p.textContent).toLocaleLowerCase().includes(q);p.hidden=!ok;if(ok)found++;});
+    groups.forEach(g=>{g.hidden=!Array.from(g.querySelectorAll('.paper')).some(p=>!p.hidden)});
+    if(count)count.textContent=q?found+' result'+(found===1?'':'s'):'';
+  };
+  search.addEventListener('input',refresh);
+})();
+
+</script>
 </body>
 </html>
